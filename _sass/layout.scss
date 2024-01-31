@@ -9,14 +9,14 @@
   @include mq(md) {
     flex-flow: column nowrap;
     position: fixed;
-    width: $nav-width-md;
+    width: $nav-width;
     height: 100%;
     border-right: $border $border-color;
     align-items: flex-start;
   }
 
   @include mq(lg) {
-    width: calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width-md});
+    width: calc((100% - #{$nav-width + $content-width}) / 2 - #{$nav-width-md});
     min-width: $nav-width-md;
   }
 }
