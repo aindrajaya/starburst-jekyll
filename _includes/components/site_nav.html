@@ -18,22 +18,7 @@
   {% if pages_top_size > 0 %}
     {% include components/nav.html pages=site.html_pages %}
   {% endif %}
-  {%- if site.nav_external_links -%}
-    <ul class="nav-list">
-      {%- for node in site.nav_external_links -%}
-        <li class="nav-list-item external">
-          <a href="{{ node.url | absolute_url }}" class="nav-list-link external"
-            {% if node.opens_in_new_tab or node.opens_in_new_tab == nil and site.nav_external_links_new_tab %}
-              target="_blank" rel="noopener noreferrer"
-            {% endif %}
-          >
-            {{ node.title }}
-            {% unless node.hide_icon %}<svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>{% endunless %}
-          </a>
-        </li>
-      {%- endfor -%}
-    </ul>
-  {%- endif -%}
+  
   {% if site.just_the_docs.collections %}
     {% assign collections_size = site.just_the_docs.collections | size %}
     {% for collection_entry in site.just_the_docs.collections %}
@@ -65,3 +50,1689 @@
     {% endfor %}
   {% endif %}
 </nav>
+
+
+<!-- <div class="col-md-3 side-navigation">
+  <div class="spacer-60 toc-sticky left-nav">
+    <div>
+        <h6 class="overline product-nav-title">Starburst Galaxy</h6>
+    </div>
+  <hr />
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('get-started');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" style="transform: rotate(90deg);">
+        </i>&nbsp;Get started</a>
+      <ul id="get-started" class="doc-subnav ">
+      <li class="active">
+        <a href="/starburst-galaxy/get-started/index.html" >Overview</a>
+      </li>
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('learn-galaxy');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Learn Galaxy</a>
+      <ul id="learn-galaxy" class="doc-subnav hidden">
+      <li >
+        <a href="/starburst-galaxy/get-started/learn/sign-up.html" >Sign up for Starburst Galaxy</a>
+      </li>
+      <li >
+        <a href="/starburst-galaxy/get-started/learn/galaxy-home-page.html" >Galaxy home page</a>
+      </li>
+      <li >
+        <a href="/starburst-galaxy/get-started/learn/try-your-first-query.html" >Try your first query</a>
+      </li>
+      <li >
+        <a href="/starburst-galaxy/get-started/learn/create-object-storage-catalog.html" >Create an object storage catalog</a>
+      </li>
+      <li >
+        <a href="/starburst-galaxy/get-started/learn/create-rdbms-catalog.html" >Create a relational database catalog</a>
+      </li>
+      <li >
+        <a href="/starburst-galaxy/get-started/learn/tableau-and-galaxy.html" >Use Galaxy with Tableau</a>
+      </li>
+      </ul>
+    </li>
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('tutorials');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Tutorials</a>
+      <ul id="tutorials" class="doc-subnav hidden">
+        
+
+
+      <li >
+        <a href="/starburst-galaxy/get-started/tutorials/index.html" >Tutorials overview</a>
+      </li>
+
+
+
+
+      <li >
+        <a href="/starburst-galaxy/get-started/tutorials/query-data-lake.html" >Query the COVID-19 data lake</a>
+      </li>
+
+
+
+
+      <li >
+        <a href="/starburst-galaxy/get-started/tutorials/query-federation.html" >Federate multiple data sources</a>
+      </li>
+
+
+
+
+      <li >
+        <a href="/starburst-galaxy/get-started/tutorials/learn-basics.html" >Learn SQL basics</a>
+      </li>
+
+
+
+
+      <li >
+        <a href="/starburst-galaxy/get-started/tutorials/learn-decision-logic.html" >Learn SQL decision logic</a>
+      </li>
+
+
+
+
+      <li >
+        <a href="/starburst-galaxy/get-started/tutorials/learn-window-functions.html" >Learn SQL window functions</a>
+      </li>
+
+
+
+
+      <li >
+        <a href="/starburst-galaxy/get-started/tutorials/learn-complex-grouping.html" >Learn complex grouping with SQL</a>
+      </li>
+
+
+
+      </ul>
+    </li>
+      <li >
+        <a href="/starburst-galaxy/get-started/release-notes.html" >Release notes</a>
+      </li>
+      <li >
+        <a href="/starburst-galaxy/get-started/feature-release-types.html" >Feature release types</a>
+      </li>
+      <li >
+        <a href="/starburst-galaxy/get-started/get-support.html" >Help center</a>
+      </li>
+      <li >
+        <a href="/starburst-galaxy/get-started/partner-connect.html" >Partner connect</a>
+      </li>
+      </ul>
+    </li>
+
+
+    <hr />
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('working-with-data');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Working with data</a>
+      <ul id="working-with-data" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('query-data');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Query data</a>
+      <ul id="query-data" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-data/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-data/federating-queries-from-different-sources.html" >Federating queries</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-data/run-queries.html" >Run queries</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-data/save-and-reuse-queries.html" >Save and reuse queries</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-data/schedule-tasks.html" >Schedule tasks</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-data/query-results.html" >Use query results</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-data/query-history.html" >Review query history</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-data/connect-clients.html" >Connect clients</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-data/use-session-properties.html" >Use session properties</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('explore-data');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Explore data</a>
+      <ul id="explore-data" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/explore-data/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/explore-data/global-search.html" >Universal search</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/explore-data/schema-discovery.html" >Discover object storage</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/explore-data/browse-data-products.html" >Browse data products</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/explore-data/explore-clusters.html" >Explore clusters</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/explore-data/catalog-level.html" >Explore catalogs</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/explore-data/schema-level.html" >Explore schemas</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/explore-data/table-level.html" >Explore tables and views</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('share-data');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Share data</a>
+      <ul id="share-data" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/share-data/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/share-data/share-queries.html" >Share queries</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/share-data/create-a-data-product.html" >Create a data product</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/share-data/edit-a-data-product.html" >Edit a data product</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('create-catalogs');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Manage catalogs</a>
+      <ul id="create-catalogs" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('object-storage');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Object storage</a>
+      <ul id="object-storage" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/object-storage/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/object-storage/s3.html" >Amazon S3</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/object-storage/adls.html" >Azure Data Lake</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/object-storage/gcs.html" >Google Cloud Storage</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/object-storage/tabular.html" >Tabular</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('non-object-storage');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Non-object storage</a>
+      <ul id="non-object-storage" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/dynamodb.html" >Amazon DynamoDB</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/redshift.html" >Amazon Redshift</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/cassandra.html" >Apache Cassandra</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/druid.html" >Apache Druid</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/pinot.html" >Apache Pinot</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/synapse.html" >Azure Synapse</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/clickhouse.html" >ClickHouse</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/elasticsearch.html" >Elasticsearch</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/galaxy_telemetry.html" >Galaxy Telemetry</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/bigquery.html" >Google BigQuery</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/google-sheets.html" >Google Sheets</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/mariadb.html" >MariaDB</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/sqlserver.html" >Microsoft SQL Server</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/mongodb.html" >MongoDB</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/mysql.html" >MySQL</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/oracle.html" >Oracle</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/postgresql.html" >PostgreSQL</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/salesforce.html" >Salesforce</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/snowflake.html" >Snowflake</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/non-object-storage/stargate.html" >Stargate</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('sample-data-sets');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Sample data sets</a>
+      <ul id="sample-data-sets" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/sample-data-sets/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/sample-data-sets/covid-19.html" >COVID-19 data lake</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/sample-data-sets/sample.html" >Sample dataset</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/sample-data-sets/tpcds.html" >TPC-DS dataset</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/sample-data-sets/tpch.html" >TPC-H dataset</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/create-catalogs/manage-catalogs.html" >Manage catalogs</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('query-performance');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Query performance</a>
+      <ul id="query-performance" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-performance-and-monitoring/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-performance-and-monitoring/view-query-details.html" >View query details</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-performance-and-monitoring/query-reports.html" >View query reports</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-performance-and-monitoring/understanding-query-planning.html" >Query planning</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-performance-and-monitoring/locate-failed-queries.html" >Locate failed queries</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-performance-and-monitoring/optimize-queries.html" >Optimize queries</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/query-performance-and-monitoring/session-properties-performance.html" >Session properties</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/migrating-queries.html" >Migrating queries</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/working-with-data/sql-reference.html" >SQL reference</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  <hr />
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('dataengineering');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Data engineering</a>
+      <ul id="dataengineering" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('working-with-data-lakes');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Working with data lakes</a>
+      <ul id="working-with-data-lakes" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/storage.html" >Storage</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/metastores.html" >Metastores</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/file-formats.html" >File formats</a>
+      </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('table-formats');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Table formats</a>
+      <ul id="table-formats" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/table-formats/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/table-formats/gl-iceberg.html" >Iceberg table format</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/table-formats/gl-deltalake.html" >Delta Lake table format</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/table-formats/gl-hive.html" >Hive table format</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/table-formats/gl-hudi.html" >Hudi table format</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/table-formats/gl-shared-session-properties.html" >Shared session properties</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/working-with-data-lakes/table-formats/table-format-migration.html" >Table format migration</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('performance-quality');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Performance and quality</a>
+      <ul id="performance-quality" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/optimization-performance-and-quality/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/optimization-performance-and-quality/materialized-views.html" >Using materialized views</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/optimization-performance-and-quality/partitioning.html" >Partitioning</a>
+      </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('workload-optimization');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Workload optimization</a>
+      <ul id="workload-optimization" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/optimization-performance-and-quality/workload-optimization/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/optimization-performance-and-quality/workload-optimization/clusters-with-fte.html" >Fault-tolerant execution</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/optimization-performance-and-quality/workload-optimization/warp-speed-enabled.html" >Starburst Warp Speed</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/data-engineering/optimization-performance-and-quality/workload-optimization/query-result-caching.html" >Query result caching</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  <hr />
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('developer-tools');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Developer tools</a>
+      <ul id="developer-tools" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/developer-tools/python/index.html" >Python</a>
+      </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('api');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;API</a>
+      <ul id="api" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/developer-tools/api/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/developer-tools/api/api-auth-token.html" >API authentication tokens</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  <hr />
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('clusteradministration');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Cluster administration</a>
+      <ul id="clusteradministration" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/galaxy-cluster-basics.html" >Galaxy cluster basics</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/create-edit-and-delete-galaxy-clusters.html" >Create and edit clusters</a>
+      </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('cluster-access');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Manage cluster access</a>
+      <ul id="cluster-access" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('sso-integration');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Manage SSO integration</a>
+      <ul id="sso-integration" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-sso-integration/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-sso-integration/okta-saml-setup.html" >Okta SAML setup</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-sso-integration/okta-scim-setup.html" >Okta SCIM setup</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-sso-integration/azure-saml-setup.html" >Azure SAML setup</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-sso-integration/azure-scim-setup.html" >Azure SCIM setup</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-sso-integration/google-saml-setup.html" >Google Workspace SAML setup</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-sso-integration/generic-idp.html" >Generic IdP setup</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-sso-integration/sso-delete.html" >Delete an SSO provider</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-sso-integration/sso-client-access.html" >SSO client access</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-sso-integration/groups.html" >SSO groups</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('users-roles-tags');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Users, roles, and tags</a>
+      <ul id="users-roles-tags" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-users-roles-and-tags/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-users-roles-and-tags/account-and-cluster-privileges.html" >Account and cluster privileges</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-users-roles-and-tags/create-and-use-attribute-tags.html" >Attribute tags</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-users-roles-and-tags/auto-tag.html" >Automatic data classification</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-users-roles-and-tags/roles.html" >Roles</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-users-roles-and-tags/manage-users-without-sso.html" >Manage users without SSO</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/manage-ui-access.html" >Manage UI access</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/monitor-access-changes.html" >Monitor access changes</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-access/setup-oauth-clients.html" >Set up OAuth clients</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('data-access');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Manage data access</a>
+      <ul id="data-access" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-data-access/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-data-access/access-control-policy-types.html" >Access control policy</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-data-access/creating-policies.html" >Creating policies</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-data-access/data-privileges.html" >Data privileges</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-data-access/row-filters.html" >Using row filters</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-data-access/column-masks.html" >Using column masks</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-data-access/service-accounts.html" >Using service accounts</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('cluster-connect');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Manage cluster connectivity</a>
+      <ul id="cluster-connect" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/ssh-tunnels.html" >SSH tunnels</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/ip-allowlist.html" >Galaxy IP allow list</a>
+      </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('cluster-connect-aws');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Amazon AWS</a>
+      <ul id="cluster-connect-aws" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/aws/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/aws/aws-ip-allowlist.html" >AWS IP allow list</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/aws/ssh-bastion-aws.html" >AWS bastion host</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/aws/external-aws.html" >AWS external security</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/aws/cross-region-support.html" >AWS cross-region support</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('cluster-connect-azure');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Microsoft Azure</a>
+      <ul id="cluster-connect-azure" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/azure/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/azure/azure-ip-allowlist.html" >Azure IP allow list</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/azure/ssh-bastion-azure.html" >Azure bastion host</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/azure/external-azure.html" >Azure external security</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('cluster-connect-google');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Google Cloud</a>
+      <ul id="cluster-connect-google" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/google/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/google/google-ip-allowlist.html" >GCP IP allow list</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('private-connections');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Private connections</a>
+      <ul id="private-connections" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/private-connections/aws-privatelink.html" >AWS PrivateLink</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/cluster-administration/manage-cluster-connectivity/private-connections/client-privatelink.html" >Connect clients to AWS PrivateLink</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  <hr />
+    <li >
+      <a href="/starburst-galaxy/sg-nav-section-ui.html" >Starburst Galaxy UI</a>
+    </li>
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('clusters');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Clusters</a>
+      <ul id="clusters" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/clusters/cluster-utilization.html" >Cluster utilization</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('admin');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Admin</a>
+      <ul id="admin" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/admin/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/admin/cluster-scheduling.html" >Cluster configurations</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/admin/usage-billing.html" >Usage and billing</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/admin/notification-settings.html" >Notification settings</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  <hr />
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('troubleshooting');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Troubleshooting</a>
+      <ul id="troubleshooting" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/troubleshooting/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/troubleshooting/catalogs.html" >Catalogs</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/troubleshooting/clusters.html" >Clusters</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/troubleshooting/query-processing.html" >Query processing</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/troubleshooting/sql.html" >SQL</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  <hr />
+    <li >
+      <a href="https://status.galaxy.starburst.io/" >Galaxy status <i class="fa-duotone fa-arrow-up-right-from-square"></i></a>
+    </li>
+  <hr />
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('reference');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Reference</a>
+      <ul id="reference" class="doc-subnav hidden">
+        
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('sql');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;SQL</a>
+      <ul id="sql" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/sql/index.html" >Overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/sql/sql-routines.html" >SQL routines</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('access-control-reference');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Access control</a>
+      <ul id="access-control-reference" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/reference/access-control/index.html" >Access control basics</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/reference/access-control/galaxy-privileges-basics.html" >Galaxy privileges basics</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/reference/access-control/privileges-tables.html" >Privilege tables</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/reference/access-control/sql-privileges.html" >SQL privileges</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('expressions');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;Expressions</a>
+      <ul id="expressions" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/reference/expressions/data-quality-expressions.html" >Data quality expressions</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+    <li >
+      <a 
+        onclick="toggle_navigation_visibility('ui');"
+        style="padding-left: 2px;">
+        <i class="fa-solid fa-angle-right nav-icon" >
+        </i>&nbsp;User interface</a>
+      <ul id="ui" class="doc-subnav hidden">
+        
+  
+  
+      <li >
+        <a href="/starburst-galaxy/reference/ui/index.html" >UI overview</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/reference/ui/notifications.html" >Notifications</a>
+      </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/reference/ui/personalize.html" >Profile and settings</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+      <li >
+        <a href="/starburst-galaxy/reference/data-product-markdown.html" >Data product markdown</a>
+      </li>
+  
+
+
+      </ul>
+    </li>
+  </div>
+</div> -->

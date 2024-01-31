@@ -9,15 +9,12 @@
   Should not be cached, because nav_footer_custom.html might depend on page.
 {%- endcomment -%}
 
-<div class="side-bar">
-  <div class="site-header" role="banner">
-    <a href="{{ '/' | relative_url }}" class="site-title lh-tight">{% include title.html %}</a>
-    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
-      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
-    </button>
+<div class="spacer-60 toc-sticky left-nav">
+  <div>
+    <h6 class="overline product-nav-title">Starburst Docs</h6>
   </div>
 
-  {% include_cached components/site_nav.html %}
+  {% include_cached components/site_nav_default.html %}
 
   {% capture nav_footer_custom %}
     {%- include nav_footer_custom.html -%}

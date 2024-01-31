@@ -3,7 +3,7 @@
 .side-bar {
   z-index: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   background-color: $sidebar-color;
 
   @include mq(md) {
@@ -12,20 +12,21 @@
     width: $nav-width-md;
     height: 100%;
     border-right: $border $border-color;
-    align-items: flex-end;
+    align-items: flex-start;
   }
 
   @include mq(lg) {
-    width: calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width});
-    min-width: $nav-width;
+    width: calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width-md});
+    min-width: $nav-width-md;
   }
 }
 
 .main {
   @include mq(md) {
     position: relative;
-    max-width: $content-width;
-    margin-left: $nav-width-md;
+    margin-top: calc(#{$header-height} + 35px);
+    // max-width: $content-width;
+    // margin-left: $nav-width-md;
   }
 
   @include mq(lg) {
@@ -79,11 +80,12 @@
   width: 100%;
 
   @include mq(lg) {
-    width: $nav-width;
+    width: $nav-width-md;
   }
 }
 
 .site-nav {
+  // margin-top: calc(#{$header-height});
   display: none;
 
   &.nav-open {
@@ -92,9 +94,9 @@
 
   @include mq(md) {
     display: block;
-    padding-top: $sp-8;
+    // padding-top: $sp-8;
     padding-bottom: $gutter-spacing-sm;
-    overflow-y: auto;
+    overflow-y:auto;
     flex: 1 1 auto;
   }
 }

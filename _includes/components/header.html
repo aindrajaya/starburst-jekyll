@@ -1,11 +1,135 @@
-<div id="main-header" class="main-header">
-  {% if site.search_enabled != false %}
-    {% include components/search_header.html %}
-  {% else %}
-    <div></div>
-  {% endif %}
-  {% include header_custom.html %}
-  {% if site.aux_links %}
-    {% include components/aux_nav.html %}
-  {% endif %}
-</div>
+<header id="main-header" class="main-header  navbar-expand-md">
+  <div class="navbar fixed-top navbar-dark">
+    <div class="container">
+      <div class="navbar-left-container">
+        <a class="navbar-brand" href="https://www.starburst.io/">
+          <img class="img-header" src="https://docs.starburst.io/assets/img/logo/starburst_KO-T.png" height="24" alt="Starburst">
+        </a>
+        <span class="navbar-divider"></span>
+        <a href="/" class="header-text">Documentation</a>
+      </div>
+      
+      <!-- <div class="nav-item dropdown" id="site-search">
+        <div id="dropdownSearchDisplay" aria-labelledby="dropdownSearch">
+          <div id="algolia-search">
+            <div id="searchbox"></div>
+            <div
+              class="refinement-list"
+              id="versionsRefinementList"
+              style="display: none"
+            ></div>
+            <div class="refinement-list" id="product-list">
+              <h6>Product:</h6>
+            </div>
+            <div id="hits"></div>
+            <div id="stats"></div>
+          </div>
+        </div>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+    </div>
+  </div>
+  {% include components/aux_nav.html %}
+</header>
+
+
+<!-- <header class="main-header navbar-expand-md">
+  
+  <nav class="primary-nav">
+    <div class="container collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-layout navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a id="introduction"
+              class="nav-link dropdown-toggle" 
+            aria-haspopup="true" aria-label="Introduction" data-is-click="false"
+            href="/introduction/index.html">Introduction</a>
+          <div class="dropdown-menu dropdown-docs">
+            <a class="dropdown-item" href="/introduction/concepts.html">Concepts</a>
+            <a class="dropdown-item" href="/introduction/architecture.html">Architecture</a>
+            <a class="dropdown-item" href="/introduction/choose-your-starburst-product.html">Choose your Starburst product</a>
+            <a class="dropdown-item" href="/introduction/data-sources-catalogs.html">Data sources and catalogs</a>
+            <a class="dropdown-item" href="/introduction/data-lake.html">Data lakes</a>
+            <a class="dropdown-item" href="/introduction/object-storage.html">Using object storage systems</a>
+            <a class="dropdown-item" href="/introduction/metastores.html">Metastore options</a>
+            <a class="dropdown-item" href="/introduction/security.html">Security</a>
+            <a class="dropdown-item" href="/introduction/querying-data.html">Querying data with Starburst products</a>
+            <a class="dropdown-item" href="/introduction/starburst-sql.html">Using SQL</a>
+            <a class="dropdown-item" href="/introduction/migration.html">Migrating queries to Starburst</a>
+            <a class="dropdown-item" href="/introduction/query-performance.html">Query performance</a>
+            <a class="dropdown-item" href="/introduction/performance-features.html">Performance features</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a id="clients"
+              class="nav-link dropdown-toggle" 
+            aria-haspopup="true" aria-label="Clients" data-is-click="false"
+            href="/clients/index.html">Clients</a>
+          <div class="dropdown-menu dropdown-docs">
+            <a class="dropdown-item" href="/clients/index.html">All clients</a>
+            <a class="dropdown-item" href="/clients/gather-connection-information.html">Gather connection information</a>
+            <a class="dropdown-item" href="/clients/cli.html">Trino CLI</a>
+            <a class="dropdown-item" href="/clients/jdbc.html">JDBC driver</a>
+            <a class="dropdown-item" href="/clients/odbc.html">ODBC driver</a>
+            <a class="dropdown-item" href="/clients/machine-learning.html">Machine learning</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a id="starburst-galaxy"
+              class="nav-link dropdown-toggle active"
+            
+            aria-haspopup="true" aria-label="Starburst Galaxy" data-is-click="false"
+            href="/starburst-galaxy/index.html">Starburst Galaxy</a>
+          <div class="dropdown-menu dropdown-docs">
+            <a class="dropdown-item" href="/starburst-galaxy/get-started/index.html">Get started</a>
+            <a class="dropdown-item" href="/starburst-galaxy/global/get-support.html">Help center</a>
+            <a class="dropdown-item" href="/starburst-galaxy/working-with-data/index.html">Working with data</a>
+            <a class="dropdown-item" href="/starburst-galaxy/working-with-data/query-data/index.html"> Query data</a>
+            <a class="dropdown-item" href="/starburst-galaxy/working-with-data/explore-data/index.html"> Explore data</a>
+            <a class="dropdown-item" href="/starburst-galaxy/working-with-data/create-catalogs/index.html">Manage catalogs</a>
+            <a class="dropdown-item" href="/starburst-galaxy/data-engineering/index.html">Data engineering</a>
+            <a class="dropdown-item" href="/starburst-galaxy/cluster-administration/index.html">Cluster administration</a>
+            <a class="dropdown-item" href="/starburst-galaxy/working-with-data/explore-data/browse-data-products.html">Data products</a>
+            <a class="dropdown-item" href="/starburst-galaxy/admin/index.html">Admin</a>
+            <a class="dropdown-item" href="/starburst-galaxy/troubleshooting/index.html">Troubleshooting</a>
+            <a class="dropdown-item" href="/starburst-galaxy/developer-tools/python/index.html">Python</a>
+            <a class="dropdown-item" href="/starburst-galaxy/sql/index.html">SQL</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a id="starburst-enterprise"
+              class="nav-link dropdown-toggle" 
+            aria-haspopup="true" aria-label="Get started" data-is-click="false"
+            href="/starburst-enterprise/index.html">Starburst Enterprise</a>
+          <div class="dropdown-menu dropdown-docs">
+            <a class="dropdown-item" href="/latest/index.html">Latest documentation</a>
+            <a class="dropdown-item" href="/latest/try-sep.html">Try Starburst Enterprise</a>
+            <a class="dropdown-item" href="/latest/language.html">SQL reference</a>
+            <a class="dropdown-item" href="/latest/connector.html">Connect to data sources</a>
+            <a class="dropdown-item" href="/latest/admin-topics.html">Administration topics</a>
+            <a class="dropdown-item" href="/latest/security.html">Security</a>
+            <a class="dropdown-item" href="/latest/versions.html">Version information</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a id="resources"
+              class="nav-link dropdown-toggle" 
+            aria-haspopup="true" aria-label="resources" data-is-click="false"
+            href="/resources.html">Resources</a>
+          <div class="dropdown-menu dropdown-docs">
+            <a class="dropdown-item" href="/support.html">Support</a>
+            <a class="dropdown-item" href="https://www.starburst.io/community/forum/">Community forum</a>
+            <a class="dropdown-item" href="https://www.starburst.io/blog/technical">Technical blog</a>
+            <a class="dropdown-item" href="/security/index.html">Security</a>
+            <a class="dropdown-item" href="https://academy.starburst.io/">Starburst Academy</a>
+            <a class="dropdown-item" href="/videos/index.html">Video library</a>
+            <a class="dropdown-item" href="/glossary.html">Glossary</a>
+            <a class="dropdown-item" href="/conventions.html">Conventions</a>
+            <a class="dropdown-item" href="/iconography.html">Iconography</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header> -->
